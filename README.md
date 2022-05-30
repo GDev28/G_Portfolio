@@ -1,2 +1,2 @@
-# C#
-My C# skills
+# My Skills
+All my Coding Skills
