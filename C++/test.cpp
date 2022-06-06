@@ -1,50 +1,43 @@
 #include <iostream>
 #include <string>
+#include <ctime>
 
 int main(){
-	
-    std::string name;
-    std::string placeholder;
 
-    std::cout << "Enter your name: ";
-    std::getline(std::cin, name);
+    int tries = 10;
+    int num;
+    int guess;
+    std::string where = "???";
+   
+    srand(time(0));
+    num = (rand() % 100) + 1;
+    std::cout << num;
 
-    if(name.length() > 12){
+    for(tries; tries > 0; tries--) {
+        std::cout << "The number is " << where << " than the last try" << "\n";
+        std::cout << "You only have " << tries << " tries left!" << "\n";      
+        std::cout << "What is your guess? " << "\n";
+        std::cout << ">> ";
+        std::cin >> guess;
 
-        std::cout << "Your name can't have more than 12 characters" << '\n';
 
+        if(num == guess){
+            std::cout << "You got the right anwser!" << "\n";
+            std::cout << "Your accuracy " << (tries - (10 - tries)/tries) * 10 << "%";
+            break;
+        }
+        else{
+            if(num < guess){
+                where = "lower";
+            }
+            else{
+                where = "higher";
+            }
+
+        }
     }
-    else if(name.length() < 12 && name.length() > 0){
- 
-        std::cout << "Welcome " << name << "!" << '\n';
-    }
-    else if(name.empty()){
 
-        std::cout << "You didn't put your name!" << '\n';
-    }
 
-    placeholder = name;
-    name.clear();
-
-    std::cout << "Welcome" << name << '\n';
-
-    name.append(placeholder);
-    name.append("@gmail.com");
-
-    std::cout << "Your email is: " << name << '\n';
-
-    std::cout << "Your first character is: " << name.at(0) << '\n';
-
-    name = placeholder;
-    name.insert(0, "@");
-
-    std::cout << "Your twitter user is: " << name << '\n';
-
-    name = placeholder;
-    placeholder = name.at(0);
-
-    std::cout << "The position of the first letter of your name is in: " << name.find(placeholder) << '\n';
-    std::cout << "Your name without the first three letters is: " << name.erase(0, 3) << '\n';
 
 
     return 0;

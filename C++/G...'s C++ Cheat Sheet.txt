@@ -317,3 +317,156 @@ NOTE: Everything must include '#include <iostream>' package
     std::cout << "Your name without the first three letters is: " << name.erase(0, 3) << '\n';
 
 =========================================================================================================================
+
+	While and For Loops
+
+	int i;
+
+    while(i < 10000){
+        std::cout << i << '\n';
+        i++;
+
+    }
+    i = 0;
+
+    for(i = 1; i <= 100; i+=2){
+        std::cout << "HAPPY IDK " << i << '\n';
+    }
+
+=========================================================================================================================
+
+	Break and continue
+
+	NOTE: CAN ONLY BE USED IN FOR/WHILE LOOPS
+
+	int i;
+
+    for(i = 1; i <= 100; i++){
+        std::cout << i << '\n';
+        if(i == 50){
+            break;
+        }
+    }
+    for(i = 1; i <= 100; i++){
+        std::cout << i << '\n';
+        if(i == 50){
+            continue;
+        }
+    }
+=========================================================================================================================
+
+	Nested For Loops
+
+	int i;
+    int x;
+    int column;
+    int rows;
+    char letter;
+
+    for(i = 1; i <= 3; i++){
+        for(x = 1; x <= 50; x++){
+            std::cout << x << " ";
+        }
+        std::cout << "\n"; 
+    }
+
+    std::cout << "How much columns do you want? \n";
+    std::cout << ">> ";
+    std::cin >> column;
+
+    std::cout << "How much rows do you want? \n";
+    std::cout << ">> ";
+    std::cin >> rows;
+
+    std::cout << "Which letter you want to print? \n";
+    std::cout << ">> ";
+    std::cin >> letter;
+
+    for(i = 1; i <= rows; i++){
+        for(x = 1; x <= column; x++){
+            std::cout << letter << " ";
+        }
+
+    }
+
+=========================================================================================================================
+
+	Random
+	NOTE: MUST INCLUDE THE <ctime> package
+
+	srand(time(0));
+
+    int num1 = (rand() % 6) + 1;
+    int num2 = (rand() % 6) + 1;
+    int num3 = (rand() % 6) + 1;
+
+    std::cout << num1 << "\n";
+    std::cout << num2 << "\n";
+    std::cout << num3 << "\n";
+
+	With Switch
+
+	srand(time(0));
+
+    int num = (rand() % 5) + 1;
+
+    switch(num){
+        case 1:
+            std::cout << "You got a dog!";
+        break;
+        case 2:
+            std::cout << "You got a bird!";
+    	break;
+        case 3:
+            std::cout << "You got a bear!";
+        break;
+        case 4:
+            std::cout << "You got a cat!";
+        break;
+        case 5:
+            std::cout << "You got a elephant!";
+        break;
+    }
+
+
+
+=========================================================================================================================
+
+	Guess The Number: C++ Edition
+
+	int tries = 10;
+    int num;
+    int guess;
+    std::string where = "???";
+   
+    srand(time(0));
+    num = (rand() % 100) + 1;
+    std::cout << num;
+
+    for(tries; tries > 0; tries--) {
+        std::cout << "The number is " << where << " than the last try" << "\n";
+        std::cout << "You only have " << tries << " tries left!" << "\n";      
+        std::cout << "What is your guess? " << "\n";
+        std::cout << ">> ";
+        std::cin >> guess;
+
+
+        if(num == guess){
+            std::cout << "You got the right anwser!" << "\n";
+            std::cout << "Your accuracy " << (tries - (10 - tries)/tries) * 10 << "%";
+            break;
+        }
+        else{
+            if(num < guess){
+                where = "lower";
+            }
+            else{
+                where = "higher";
+            }
+
+        }
+    }
+
+=========================================================================================================================
+
+
